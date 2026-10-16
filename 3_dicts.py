@@ -29,7 +29,18 @@ def get_departed_names(clients):
 
 
 def main():
-    pass
+    clients = [
+        {"name": "Анна", "age": 25, "city": "Москва", "churn": 0},
+        {"name": "Иван", "age": 32, "city": "Казань", "churn": 1},
+        {"name": "Олег", "age": 40, "city": "Москва", "churn": 0},
+        {"name": "Елена", "age": 28, "city": "Омск", "churn": 1},
+    ]
+    print("Клиент:", describe_client(clients[0]))
+    print("Без города:", describe_client({"name": "Мария", "age": 35}))
+    print("Клиенты по городам:", count_by_city(clients))
+    print("Пустой список городов:", count_by_city([]))
+    print("Ушедшие:", get_departed_names(clients))
+    print("Нет клиентов:", get_departed_names([]))
 
 
 if __name__ == "__main__":

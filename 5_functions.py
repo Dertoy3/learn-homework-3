@@ -34,7 +34,18 @@ def format_greeting(name, greeting="Привет"):
 
 
 def main():
-    pass
+    print("Без скидки:", calculate_total(100, 3))
+    print("Со скидкой:", calculate_total(100, 3, 0.1))
+    print("Именованные аргументы:", calculate_total(price=200, quantity=2, discount=0.25))
+    print("Количество по умолчанию:", calculate_total(100))
+    result = calculate_total(100, 3, 0.1)
+    # После реализации calculate_total раскомментируй:
+    # print("Стоимость с доставкой:", result + 50)
+    tasks = ["Изучить строки"]
+    print("Новый список:", add_task(tasks, "Изучить функции"))
+    print("Исходный список:", tasks)
+    print(format_greeting("Анна"))
+    print(format_greeting("Иван", greeting="Здравствуйте"))
 
 
 if __name__ == "__main__":

@@ -27,7 +27,9 @@ def increase(value, step=1):
 def main():
     scope_demo()
     print("После scope_demo:", value)
-    # Здесь вызови increase и сохрани результат в local_result.
+    local_result = increase(value, step=5)
+    print("Результат increase:", local_result)
+    print("Глобальное значение:", value)
 
 
 if __name__ == "__main__":

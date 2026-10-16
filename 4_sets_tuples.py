@@ -27,7 +27,12 @@ def get_bounds(numbers):
 
 
 def main():
-    pass
+    print("Группы:", compare_groups(["Анна", "Иван"], ["Иван", "Олег"]))
+    print("Пустые группы:", compare_groups([], []))
+    print("Границы:", get_bounds([8, 2, 5]))
+    print("Пустые границы:", get_bounds([]))
+    # Добавь здесь создание и распаковку кортежа, пустое множество
+    # и комментарии из условия.
 
 
 if __name__ == "__main__":

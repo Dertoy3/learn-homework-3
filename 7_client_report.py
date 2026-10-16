@@ -57,7 +57,8 @@ def build_report(clients):
 
 
 def main():
-    pass
+    print("Отчёт по клиентам:", build_report(CLIENTS))
+    print("Отчёт без клиентов:", build_report([]))
 
 
 if __name__ == "__main__":

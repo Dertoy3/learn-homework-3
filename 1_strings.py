@@ -32,7 +32,12 @@ def make_slug(text):
 
 
 def main():
-    pass
+    print("Имя:", normalize_name("  аННА иВАНОВА  "))
+    print("Пустое имя:", normalize_name(""))
+    print("Количество слов:", count_words("  Python   это интересно  "))
+    print("Пустой текст:", count_words(""))
+    print("Slug:", make_slug("  Учим   Python  "))
+    print("Пустой slug:", make_slug(""))
 
 
 if __name__ == "__main__":

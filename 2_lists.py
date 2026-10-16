@@ -29,7 +29,13 @@ def summarize_numbers(numbers):
 
 
 def main():
-    pass
+    print("Проходные баллы:", filter_scores([40, 60, 90, 55]))
+    print("Другой порог:", filter_scores([40, 60, 90, 55], minimum=80))
+    print("Пустые баллы:", filter_scores([]))
+    print("Без повторов:", unique_in_order(["a", "b", "a", "c"]))
+    print("Пустой список:", unique_in_order([]))
+    print("Статистика:", summarize_numbers([2, 4, 6]))
+    print("Пустая статистика:", summarize_numbers([]))
 
 
 if __name__ == "__main__":
