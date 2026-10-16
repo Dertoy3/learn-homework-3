@@ -7,7 +7,7 @@
 Реализуй функции так, чтобы build_report использовала вспомогательные функции.
 Не используй pandas, global и изменение исходных данных.
 
-Для CLIENTS ожидается:
+Для CLIENTS в build_report ожидается:
 total = 5
 departed_count = 3
 departed_share = 0.6 (доля от 0 до 1, не процент)
