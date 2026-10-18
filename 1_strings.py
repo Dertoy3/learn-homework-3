@@ -6,29 +6,29 @@
 """
 
 
-def normalize_name(name):
+def normalize_name(name: str) -> str:
     """Удали пробелы по краям и сделай первую букву каждого слова заглавной.
     normalize_name("  аННА иВАНОВА  ") -> "Анна Иванова"
     normalize_name("") -> ""
     """
-    pass
+    return name.strip().capitalize()
 
 
-def count_words(text):
+def count_words(text:str) -> list:
     """Верни количество слов, разделённых пробелами.
     count_words("  Python   это интересно  ") -> 3
     count_words("") -> 0
     """
-    pass
+    return text.split()
 
 
-def make_slug(text):
+def make_slug(text: str) -> str:
     """Удали пробелы по краям, переведи буквы в нижний регистр.
     Раздели текст по пробелам и соедини слова дефисами.
     Пунктуацию сохраняй; транслитерация не нужна.
     make_slug("  Учим   Python  ") -> "учим-python"
     """
-    pass
+    return '-'.join(text.split())
 
 
 def main():

@@ -8,23 +8,25 @@
 """
 
 
-def compare_groups(first, second):
+def compare_groups(first: list[str], second: list[str]) -> dict:
     """Принимает два списка имён. Верни словарь с тремя множествами:
     common — имена в обеих группах;
     only_first — имена только в первой группе;
     all_names — все уникальные имена.
     Порядок элементов множеств не учитывается.
     """
-    pass
+    first = set(first)
+    second = set(second)
+    return {'Common': first.intersection(second), 'Only_first': first.difference(second), 'All_names': first.union(second)}
 
 
-def get_bounds(numbers):
+def get_bounds(numbers: list) -> tuple:
     """Верни кортеж (минимум, максимум).
     get_bounds([8, 2, 5]) -> (2, 8)
     Для пустого списка верни (None, None).
     """
-    pass
-
+    if numbers: return min(numbers), max(numbers)
+    return ()
 
 def main():
     print("Группы:", compare_groups(["Анна", "Иван"], ["Иван", "Олег"]))
