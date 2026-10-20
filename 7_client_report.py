@@ -1,3 +1,4 @@
+from typing import TypedDict
 """
 Задание 7. Итоговая задача: отчёт по клиентам.
 
@@ -23,7 +24,14 @@ departed_names = [], cities = set(), departed_by_city = {}.
 Для каждого шага объясни, почему выбран список, словарь или множество.
 """
 
-CLIENTS = [
+class Client(TypedDict):
+    name: str
+    age: int
+    city: str
+    churn: int
+
+
+CLIENTS: list[Client] = [
     {"name": "Анна", "age": 25, "city": "Москва", "churn": 0},
     {"name": "Иван", "age": 32, "city": "Казань", "churn": 1},
     {"name": "Олег", "age": 40, "city": "Москва", "churn": 0},
@@ -31,27 +39,50 @@ CLIENTS = [
     {"name": "Мария", "age": 35, "city": "Омск", "churn": 0},
 ]
 
-
-def get_departed(clients):
+def get_departed(clients: list[Client]) -> list:
     """Верни список словарей ушедших клиентов в исходном порядке."""
-    pass
+    return [x for x in clients if x.get('churn') == 0]
 
 
-def calculate_departed_share(clients):
+def calculate_departed_share(clients: list[Client], departed: int) -> float:
     """Верни долю ушедших среди всех клиентов. Для [] верни 0.0."""
-    pass
+    if departed == 0:
+        return 0.0
+    return 1/len(clients)*departed
 
 
-def count_departed_by_city(clients):
+def count_departed_by_city(clients: list[Client]) -> dict:
     """Верни словарь город -> число ушедших.
     Включи каждый город из clients, даже если ушедших в нём нет.
     """
-    pass
+    departed_by_city = {}
+    for client in clients:
+        city = client.get('city')
+        churn = client.get('churn')
+
+        if city in departed_by_city and churn == 0:
+            departed_by_city[city] += 1
+        elif churn == 1:
+            departed_by_city[city] = 0
+        else:
+            departed_by_city[city] = 1
+    return departed_by_city
 
 
-def build_report(clients):
+def build_report(clients: list[Client]) -> dict:
     """Верни словарь с шестью ключами, перечисленными в условии."""
-    pass
+    departed = get_departed(clients)
+    departed_names = [x.get('name') for x in departed]
+    departed_count = len(departed)
+    cities = {x.get('city') for x in clients}
+    return {
+        'total': len(clients),
+        'departed_count': departed_count,
+        'departed_share': calculate_departed_share(clients, departed_count),
+        'departed_names': departed_names,
+        'cities': cities,
+        'departed_by_city': count_departed_by_city(clients)
+    }
 
 
 def main():
