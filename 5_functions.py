@@ -11,26 +11,27 @@
 """
 
 
-def calculate_total(price, quantity=1, discount=0):
+def calculate_total(price: int, quantity: int = 1, discount: float = 0) -> float:
     """Верни стоимость: цена * количество * (1 - скидка).
     discount=0.1 означает скидку 10%. Округление не требуется.
     calculate_total(100, 3, 0.1) -> 270.0
     """
-    pass
+    return price*quantity*(1-discount)
 
 
-def add_task(tasks, task):
+def add_task(tasks: list, task: str) -> list:
     """Верни НОВЫЙ список: исходные задачи плюс task в конце.
     Исходный список не изменяй.
     """
-    pass
+    tasks.append(task)
+    return tasks.copy()
 
 
-def format_greeting(name, greeting="Привет"):
+def format_greeting(name: str, greeting: str = "Привет") -> str:
     """Верни строку, например "Привет, Анна!".
     format_greeting("Иван", greeting="Здравствуйте") -> "Здравствуйте, Иван!"
     """
-    pass
+    return f'{greeting}, {name}!'
 
 
 def main():
@@ -40,7 +41,7 @@ def main():
     print("Количество по умолчанию:", calculate_total(100))
     result = calculate_total(100, 3, 0.1)
     # После реализации calculate_total раскомментируй:
-    # print("Стоимость с доставкой:", result + 50)
+    print("Стоимость с доставкой:", result + 50)
     tasks = ["Изучить строки"]
     print("Новый список:", add_task(tasks, "Изучить функции"))
     print("Исходный список:", tasks)
